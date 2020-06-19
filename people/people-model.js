@@ -4,6 +4,7 @@ module.exports = {
   add,
   remove,
   getAll,
+  updateId,
   findById,
 };
 
@@ -19,14 +20,14 @@ async function add(person) {
     });
 }
 
-// function update(id) {
-//     return db('people')
-//       .where({ id })
-//       .update()
-//       .then(() => {
-//         return findById(id);
-//       });
-//   }
+function updateId(id, changes) {
+    return db('people')
+      .where({ id })
+      .update(changes)
+      .then(() => {
+        return findById(id);
+      });
+  }
 
 function remove(id) {
   return db('people')
@@ -34,14 +35,6 @@ function remove(id) {
   .del();
 }
 
-// function delete(id) {
-//     const people = findById(id)
-//      .first();
-//     db('people')
-//       .where({ id })
-//       .del();
-//     return people;
-//   }
 
 function getAll() {
   return db('people');

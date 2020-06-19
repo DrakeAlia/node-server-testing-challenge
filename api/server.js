@@ -40,11 +40,9 @@ server.delete('/people/:id', (req, res) => {
   People.remove(id)
     .then((deleted) => {
       if (deleted) {
-        res.status(200).json({ removed: deleted });
+        res.status(200).json({ removed: `user id${req.params.id} was deleted` });
       } else {
-        res
-          .status(404)
-          .json({ message: 'Could not find scheme with given id' });
+        res.status(404).json({ message: 'Could not find scheme with given id' });
       }
     })
     .catch((err) => {

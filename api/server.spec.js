@@ -4,6 +4,7 @@ const db = require('../data/dbConfig');
 const People = require('../people/people-model.js');
 
 
+
 describe('server.js', () => {
     it('can run the test', () => {
         expect(true).toBeTruthy();
